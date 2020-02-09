@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+</head>
+<style>
+  @font-face {
+  font-family: 'MyWebFont';
+  src:  url('Montserrat-Regular.woff2') format('woff2');
+}
+body {
+  font-family: 'MyWebFont', Fallback, sans-serif;
+    font-size: 120px;
+  color: white;
+}
+</style>
+<body>
+  <p></p>
+  <script src="/jquery.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+    socket.on('connect', function (data) {
+      socket.emit('join', 'Hello World from client');
+    });
+    socket.on('tokens', function (data) {
+      $( "p" ).first().text(data)
+    });
+  </script>
+</body>
+</html>

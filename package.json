@@ -1,0 +1,23 @@
+{
+  "name": "token_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": "index.js",
+  "author": "jumoog",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.7.5",
+    "@types/express": "^4.17.2"
+  },
+  "pkg": {
+    "scripts": "build/*.js",
+    "assets": "build/*.*"
+  }
+}
