@@ -1,3 +1,3 @@
 # obs_token
 
-https://mega.nz/#F!AslEVKIA!9S6OJ4ueW3eLmKkefMb74g
+https://gist.github.com/jumoog/8b12436630fcfebddcccb9700f40e584
