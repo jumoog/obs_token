@@ -1,16 +1,22 @@
 import express from "express"
 import bodyParser from "body-parser"
+import fs from "fs";
 
 const app = express()
 const server = require('http').createServer(app)
 let io = require('socket.io')(server)
 let counter: number = 0.0
+let json = JSON.parse(fs.readFileSync('package.json', 'utf8'))
+let version = json.version
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(__dirname + '/build'))
 
 const port = 8080 // default port to listen
-
+console.log(`OBS-Tokens: ${version}`)
+console.log(`URL for OBS: http://localhost:8080`)
+console.log(`URL for resetting Counter: http://localhost:8080/reset`)
+console.log(`Have a nice Show!\n`)
 let originalLog = console.log
 // Overwriting
 console.log = function () {

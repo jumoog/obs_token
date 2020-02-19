@@ -5,14 +5,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const body_parser_1 = __importDefault(require("body-parser"));
+const fs_1 = __importDefault(require("fs"));
 const app = express_1.default();
 const server = require('http').createServer(app);
 let io = require('socket.io')(server);
 let counter = 0.0;
+let json = JSON.parse(fs_1.default.readFileSync('package.json', 'utf8'));
+let version = json.version;
 app.use(body_parser_1.default.json());
 app.use(body_parser_1.default.urlencoded({ extended: false }));
 app.use(express_1.default.static(__dirname + '/build'));
 const port = 8080;
+console.log(`OBS-Tokens: ${version}`);
+console.log(`URL for OBS: http://localhost:8080`);
+console.log(`URL for resetting Counter: http://localhost:8080/reset`);
+console.log(`Have a nice Show!\n`);
 let originalLog = console.log;
 console.log = function () {
     var args = [].slice.call(arguments);
